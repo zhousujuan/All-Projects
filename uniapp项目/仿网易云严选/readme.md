@@ -28,3 +28,29 @@
 
 
 
+## 创建项目并进行基础设置
+
+新建一个uni-app项目，并删除里面不需要的文件
+
+删除文件:
+
+- uni.scss
+
+- /static/logo.png
+
+
+
+
+
+修改文件manifest.json
+
+```
+"appid" : "_UNI_zhousujuan",//随便写
+```
+
+
+
+微信小程序配置
+
+![image-20210725231123506](C:\Users\juan~er\AppData\Roaming\Typora\typora-user-images\image-20210725231123506.png)
+
