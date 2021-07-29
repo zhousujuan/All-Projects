@@ -7,7 +7,7 @@ const Home = () => import("../views/Home")
 const Login = () => import("../views/Login")
 const Register = () => import("../views/Register")
 const Search = () => import("../views/Search")
-const ShopCart = () => import("../views/ShopCart")
+const ShopCard = () => import("../views/ShopCard")
 
 Vue.use(VueRouter);
 
@@ -34,9 +34,9 @@ const routes = [
   },
 
   {
-    name: 'ShopCart',//命名路由
-    path: "/shopCart",
-    component: ShopCart,
+    name: 'ShopCard',//命名路由
+    path: "/shopCard",
+    component: ShopCard,
   },
 ];
 
