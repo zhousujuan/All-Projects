@@ -41,15 +41,15 @@
             <div class="list_num list_num2">
               <span class="counter-value">1149.66</span>亿
             </div>
-            <div class="today_list_font">今日最新交易<span>0.2</span>亿</div>
+            <div class="today_list_font">今日最新收入<span>0.2</span>亿</div>
           </div>
-          <!-- <div class="middle_top_list">
-            <div class="list_title">累计交易面积</div>
+          <div class="middle_top_list">
+            <div class="list_title">累计支出金额</div>
             <div class="list_num list_num3">
-              <span class="counter-value">2137.26</span>万亩
+              <span class="counter-value">1149.66</span>亿
             </div>
-            <div class="today_list_font">今日交易面积<span>1.5</span>万亩</div>
-          </div> -->
+            <div class="today_list_font">今日最新支出<span>0.2</span>亿</div>
+          </div>
         </div>
         <div id="map" class="middle_bottom"></div>
       </div>
@@ -59,7 +59,7 @@
           <div id="Land_analysis" class="left_top_main right_top_main"></div>
         </div>
         <div class="right_bottom">
-          <div class="left_top_title">税收项目排行</div>
+          <div class="left_top_title">排队时间</div>
           <div
             id="Information_Delivery"
             class="left_top_main right_top_main"
@@ -153,154 +153,127 @@ onMounted(() => {
   myChart1.setOption(option1);
 
   var myChart2 = echarts.init(document.getElementById("Land_analysis"));
-
+  const data2 = [];
+  for (let i = 0; i < 5; ++i) {
+    data2.push(Math.round(Math.random() * 200));
+  }
   var option2 = {
-    legend: {
-      x: "right",
-      y: "top",
-      textStyle: {
-        color: "#4ADEFE",
-      },
-    },
-    grid: {
-      x: 30,
-      y: 50,
-      x2: 0,
-      y2: 45,
-    },
-    tooltip: {},
-    dataset: {
-      source: [
-        ["product", "本地总面积", "本地已流转面积"],
-        ["岳阳市", 43.3, 85.8],
-        ["益阳市", 83.1, 73.4],
-        ["长沙市", 86.4, 65.2],
-        ["株洲市", 72.4, 53.9],
-        ["衡阳市", 72.4, 53.9],
-        ["永州市", 72.4, 53.9],
-        ["娄底市", 72.4, 53.9],
-        ["郴州市", 72.4, 53.9],
-        ["湘潭市", 72.4, 53.9],
-      ],
-    },
     xAxis: {
-      type: "category",
-      axisLine: {
-        show: false,
-        lineStyle: {
-          color: "#4ADEFE",
-        },
-      },
-      // data: ["岳阳市","益阳市","长沙市","株洲市","衡阳市","永州市","娄底市","郴州市","湘潭市"],
-      axisTick: {
-        alignWithLabel: true,
-      },
+      max: "dataMax",
     },
     yAxis: {
-      axisLine: {
-        lineStyle: {
-          color: "#4ADEFE",
-        },
-      },
-      splitLine: {
-        lineStyle: {
-          color: "#4ADEFE",
-        },
-      },
+      type: "category",
+      data: ["A", "B", "C", "D", "E"],
+      inverse: true,
+      animationDuration: 300,
+      animationDurationUpdate: 300,
+      max: 5, // only the largest 3 bars will be displayed
     },
     series: [
       {
+        realtimeSort: true,
+        name: "X",
         type: "bar",
-        barMaxWidth: "10",
-        itemStyle: {
-          normal: {
-            color: "#4ADEFE",
-          },
-        },
-      },
-      {
-        type: "bar",
-        barMaxWidth: "10",
-        itemStyle: {
-          normal: {
-            color: "#F3DB5C",
-          },
+        data: data2,
+        label: {
+          show: true,
+          position: "right",
+          valueAnimation: true,
         },
       },
     ],
+    animationDuration: 0,
+    animationDurationUpdate: 3000,
+    animationEasing: "linear",
+    animationEasingUpdate: "linear",
   };
+
+  function run() {
+    for (var i = 0; i < data.length; ++i) {
+      if (Math.random() > 0.9) {
+        data[i] += Math.round(Math.random() * 2000);
+      } else {
+        data[i] += Math.round(Math.random() * 200);
+      }
+    }
+    myChart.setOption({
+      series: [
+        {
+          type: "bar",
+          data,
+        },
+      ],
+    });
+  }
+  setTimeout(function () {
+    run();
+  }, 0);
+  setInterval(function () {
+    run();
+  }, 3000);
   myChart2.setOption(option2);
 
   var myChart3 = echarts.init(document.getElementById("Information_Delivery"));
 
   var option3 = {
+    // title: {
+    //   text: "Stacked Line",
+    // },
+    tooltip: {
+      trigger: "axis",
+    },
     legend: {
-      x: "right",
-      y: "top",
-      textStyle: {
-        color: "#4ADEFE",
-      },
+      data: ["Email", "Union Ads", "Video Ads", "Direct", "Search Engine"],
     },
     grid: {
-      x: 30,
-      y: 50,
-      x2: 0,
-      y2: 45,
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true,
     },
-    tooltip: {},
-    dataset: {
-      source: [
-        ["product", "土地流转信息", "找地需求信息"],
-        ["岳阳市", 43.3, 85.8],
-        ["益阳市", 83.1, 73.4],
-        ["长沙市", 86.4, 65.2],
-        ["株洲市", 72.4, 53.9],
-        ["衡阳市", 72.4, 53.9],
-        ["永州市", 72.4, 53.9],
-        ["娄底市", 10.4, 200.9],
-        ["郴州市", 72.4, 90.9],
-        ["湘潭市", 20.4, 300.9],
-      ],
+    toolbox: {
+      feature: {
+        saveAsImage: {},
+      },
     },
     xAxis: {
       type: "category",
-      axisLine: {
-        lineStyle: {
-          color: "#4ADEFE",
-        },
-      },
+      boundaryGap: false,
+      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     },
     yAxis: {
-      axisLine: {
-        lineStyle: {
-          color: "#4ADEFE",
-        },
-      },
-      splitLine: {
-        show: true,
-        lineStyle: {
-          color: "#4ADEFE",
-        },
-      },
+      type: "value",
     },
     series: [
       {
-        type: "bar",
-        barMaxWidth: "10",
-        itemStyle: {
-          normal: {
-            color: "#4ADEFE",
-          },
-        },
+        name: "Email",
+        type: "line",
+        stack: "Total",
+        data: [120, 132, 101, 134, 90, 230, 210],
       },
       {
-        type: "bar",
-        barMaxWidth: "10",
-        itemStyle: {
-          normal: {
-            color: "#F3DB5C",
-          },
-        },
+        name: "Union Ads",
+        type: "line",
+        stack: "Total",
+        data: [220, 182, 191, 234, 290, 330, 310],
+      },
+      {
+        name: "Video Ads",
+        type: "line",
+        stack: "Total",
+        data: [150, 232, 201, 154, 190, 330, 410],
+      },
+      {
+        name: "Direct",
+        type: "line",
+        stack: "Total",
+        data: [320, 332, 301, 334, 390, 330, 320],
+      },
+      {
+        name: "Search Engine",
+        type: "line",
+        stack: "Total",
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
       },
     ],
   };
