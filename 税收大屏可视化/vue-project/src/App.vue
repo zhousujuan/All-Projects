@@ -196,7 +196,7 @@ onMounted(() => {
         data[i] += Math.round(Math.random() * 200);
       }
     }
-    myChart.setOption({
+    myChart1.setOption({
       series: [
         {
           type: "bar",
@@ -286,15 +286,6 @@ onMounted(() => {
     { name: "湘潭", value: 94 },
     { name: "衡阳", value: 40 },
     { name: "邵阳", value: 67 },
-    { name: "岳阳", value: 38 },
-    { name: "常德", value: 50 },
-    { name: "张家界", value: 48 },
-    { name: "益阳", value: 77 },
-    { name: "郴州", value: 78 },
-    { name: "永州", value: 57 },
-    { name: "怀化", value: 83 },
-    { name: "娄底", value: 43 },
-    { name: "湘西", value: 75 },
   ];
   var option4 = {
     title: {
@@ -318,7 +309,7 @@ onMounted(() => {
         data: data,
         borderColor: "#6099EC",
         borderWidth: 0.5,
-        mapData: Highcharts.maps["cn/hunan"],
+        mapData: Highcharts.maps["cn/ningxia"],
         name: "",
         joinBy: ["name"], // 根据 name 属性进行关联
         states: {
@@ -345,11 +336,11 @@ onMounted(() => {
               $(".circle_num3").text("2016.15");
 
               option1.series[0].data = [
-                { value: 100, name: "土地经营权" },
-                { value: 240, name: "土地流转权" },
-                { value: 130, name: "房屋所有权" },
-                { value: 200, name: "集体建设用地" },
-                { value: 400, name: "林权" },
+                { value: 335, name: "个人所得税" },
+                { value: 310, name: "土地增值税" },
+                { value: 234, name: "其他1" },
+                { value: 135, name: "其他2" },
+                { value: 1548, name: "其他3" },
               ];
               myChart1.setOption(option1);
 
