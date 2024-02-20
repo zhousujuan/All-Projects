@@ -23,43 +23,43 @@
           </div>
         </div>
         <div class="left_bottom">
-          <div class="left_top_title">业务类型</div>
+          <div class="left_top_title">税收项目占比</div>
           <div id="Business_type" class="left_top_main left_bottom_main"></div>
         </div>
       </div>
       <div class="data_middle">
         <div class="middle_top">
           <div class="middle_top_list">
-            <div class="list_title">累计发布数</div>
+            <div class="list_title">累计税收项</div>
             <div class="list_num list_num1">
               <span class="counter-value">901</span>条
             </div>
             <div class="today_list_font">今日最新发布<span>12</span>条</div>
           </div>
           <div class="middle_top_list">
-            <div class="list_title">累计交易金额</div>
+            <div class="list_title">累计税收金额</div>
             <div class="list_num list_num2">
               <span class="counter-value">1149.66</span>亿
             </div>
             <div class="today_list_font">今日最新交易<span>0.2</span>亿</div>
           </div>
-          <div class="middle_top_list">
+          <!-- <div class="middle_top_list">
             <div class="list_title">累计交易面积</div>
             <div class="list_num list_num3">
               <span class="counter-value">2137.26</span>万亩
             </div>
             <div class="today_list_font">今日交易面积<span>1.5</span>万亩</div>
-          </div>
+          </div> -->
         </div>
         <div id="map" class="middle_bottom"></div>
       </div>
       <div class="data_right">
         <div class="right_top">
-          <div class="left_top_title">土地分析报表</div>
+          <div class="left_top_title">税收地区排行</div>
           <div id="Land_analysis" class="left_top_main right_top_main"></div>
         </div>
         <div class="right_bottom">
-          <div class="left_top_title">信息发布报表</div>
+          <div class="left_top_title">税收项目排行</div>
           <div
             id="Information_Delivery"
             class="left_top_main right_top_main"
@@ -119,7 +119,7 @@ onMounted(() => {
     legend: {
       x: "center",
       y: "bottom",
-      data: ["土地经营权", "土地流转权", "房屋所有权", "集体建设用地", "林权"],
+      data: ["个人所得税", "土地增值税", "其他1", "其他2", "其他3"],
       textStyle: {
         color: "#4ADEFE",
       },
@@ -132,11 +132,11 @@ onMounted(() => {
         center: ["45%", "35%"],
         avoidLabelOverlap: false,
         data: [
-          { value: 335, name: "土地经营权" },
-          { value: 310, name: "土地流转权" },
-          { value: 234, name: "房屋所有权" },
-          { value: 135, name: "集体建设用地" },
-          { value: 1548, name: "林权" },
+          { value: 335, name: "个人所得税" },
+          { value: 310, name: "土地增值税" },
+          { value: 234, name: "其他1" },
+          { value: 135, name: "其他2" },
+          { value: 1548, name: "其他3" },
         ],
         itemStyle: {
           emphasis: {
